@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#170711">
+  <title>For Kaamna ❤️ — A Little Question</title>
+  <style>
+    :root{--rose:#ff477e;--pink:#ff9ab8;--cream:#fff2f5;--deep:#10060e}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;color:var(--cream);font-family:Georgia,"Times New Roman",serif;background:radial-gradient(ellipse at 50% 15%,#4b102b 0,#210b1a 36%,#10060e 75%);overflow-x:hidden}
+    button{font:inherit;cursor:pointer}
+    .stars,.petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+    .star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff5fa;opacity:.6;animation:twinkle 3s infinite ease-in-out}
+    @keyframes twinkle{0%,100%{opacity:.15;transform:scale(.7)}50%{opacity:.9;transform:scale(1.35)}}
+    .wrap{position:relative;z-index:1;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:28px 16px}
+    .card{width:min(100%,720px);text-align:center;padding:clamp(24px,6vw,56px) clamp(18px,5vw,48px);border:1px solid #ff9ab83b;border-radius:28px;background:linear-gradient(145deg,#ffffff0d,#ffffff04);box-shadow:0 25px 90px #0008,inset 0 1px #ffffff13;backdrop-filter:blur(12px)}
+    .eyebrow{font:600 11px/1.4 Arial,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#ffadc6}
+    .heart{font-size:clamp(44px,10vw,76px);display:inline-block;filter:drop-shadow(0 0 20px #ff477e80);animation:heartbeat 1.8s infinite;margin:16px 0 4px}
+    @keyframes heartbeat{0%,100%{transform:scale(1)}10%{transform:scale(1.12)}20%{transform:scale(1)}30%{transform:scale(1.08)}40%{transform:scale(1)}}
+    h1{font-size:clamp(36px,8vw,68px);line-height:1.03;font-weight:normal;margin:14px 0 18px;letter-spacing:-.035em}
+    h1 span{color:var(--pink);font-style:italic}
+    .subtitle{font-size:clamp(16px,3.6vw,20px);line-height:1.7;color:#f4dce5;max-width:520px;margin:0 auto}
+    .question{font-size:clamp(23px,5.5vw,34px);margin:30px 0 22px}
+    .buttons{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;min-height:58px;position:relative}
+    .btn{border:0;border-radius:999px;padding:15px 30px;min-width:132px;font:700 14px Arial,sans-serif;letter-spacing:.04em;transition:transform .2s,box-shadow .2s}
+    .btn:focus-visible{outline:3px solid white;outline-offset:4px}
+    .yes{color:white;background:linear-gradient(135deg,#ff6b9a,#df245e);box-shadow:0 8px 28px #ff477e45}
+    .yes:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 12px 34px #ff477e70}
+    .no{color:#ffe9f0;background:#ffffff10;border:1px solid #ffffff38}
+    .hint{font:12px Arial,sans-serif;color:#d5aebd;margin:20px 0 0;min-height:16px}
+    .signature{font:12px Arial,sans-serif;color:#d9b8c5;letter-spacing:.1em;margin-top:34px}
+    .hidden{display:none!important}
+    .surprise{animation:fadeUp .9s both}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    .scene{position:relative;margin:24px auto 20px;max-width:520px;aspect-ratio:16/9;border-radius:20px;overflow:hidden;border:1px solid #ffb3cc55;background:linear-gradient(160deg,#2b0b1d,#120812 60%,#3b0d25);box-shadow:0 16px 50px #0008}
+    .moon{position:absolute;right:13%;top:12%;width:50px;height:50px;border-radius:50%;background:#ffe6ee;box-shadow:0 0 35px #ffb5ce}
+    .hill{position:absolute;bottom:-25%;width:80%;height:65%;border-radius:50% 50% 0 0;background:#180a18;transform:rotate(-10deg);left:-5%}
+    .hill.two{left:38%;bottom:-32%;background:#2b0a20;transform:rotate(12deg)}
+    .silhouette{position:absolute;bottom:17%;left:50%;transform:translateX(-50%);font-size:clamp(42px,10vw,70px);filter:drop-shadow(0 0 16px #ff477e70);white-space:nowrap}
+    .scene-caption{position:absolute;inset:auto 10px 12px;text-align:center;font:italic clamp(13px,3vw,17px) Georgia,serif;color:#ffe8ef;text-shadow:0 2px 10px #000}
+    .love-letter{font-size:clamp(17px,3.7vw,21px);line-height:1.85;max-width:550px;margin:20px auto;color:#ffeaf0}
+    .final-line{font-size:clamp(24px,5vw,35px);color:var(--pink);font-style:italic;margin:24px 0 0}
+    .music-row{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin-top:22px}
+    .small-btn{background:#ffffff10;color:#ffeaf0;border:1px solid #ffffff32;border-radius:999px;padding:10px 16px;font:12px Arial,sans-serif}
+    .note{font:11px/1.5 Arial,sans-serif;color:#cda9b8;margin:18px auto 0;max-width:500px}
+    .floating-heart{position:fixed;bottom:-30px;z-index:2;pointer-events:none;animation:floatUp 5s linear forwards;text-shadow:0 0 16px #ff477e80}
+    @keyframes floatUp{to{transform:translateY(-115vh) rotate(24deg);opacity:0}}
+    @media(max-width:420px){.card{border-radius:22px}.btn{min-width:120px;padding:14px 22px}.buttons{gap:10px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars" aria-hidden="true"></div>
+  <div class="petals" id="petals" aria-hidden="true"></div>
+  <main class="wrap">
+    <section class="card" id="proposal" aria-labelledby="mainTitle">
+      <div class="eyebrow">A little question, just for you</div>
+      <div class="heart" aria-hidden="true">♥</div>
+      <h1 id="mainTitle">Kaamna, <span>you make</span><br>my world softer.</h1>
+      <p class="subtitle">Some people make ordinary moments feel magical. You have that kind of magic.</p>
+      <div class="question">Will you be mine? 💗</div>
+      <div class="buttons" id="buttons">
+        <button class="btn yes" id="yesBtn">YES, ALWAYS ♥</button>
+        <button class="btn no" id="noBtn" aria-label="No, thank you">NO 🙈</button>
+      </div>
+      <p class="hint" id="hint" aria-live="polite">Choose honestly… although one button is a little shy.</p>
+      <div class="signature">MADE WITH LOVE BY SUBH</div>
+    </section>
+
+    <section class="card hidden" id="surprise" aria-live="polite">
+      <div class="eyebrow">A moment I wanted to share with you</div>
+      <div class="heart">♥</div>
+      <h1>My favourite <span>answer</span>.</h1>
+      <p class="subtitle">If this made you smile, then this little surprise has already done its job.</p>
+      <div class="scene" role="img" aria-label="A dreamy, cinematic night sky with a glowing moon and two hearts">
+        <div class="moon"></div><div class="hill"></div><div class="hill two"></div>
+        <div class="silhouette">🫶🏻 &nbsp; ❤️</div>
+        <div class="scene-caption">Every love story is special. I'd love to write ours with you.</div>
+      </div>
+      <div class="love-letter">
+        Dear Kaamna,<br>
+        I don't need a perfect world. I just hope to share more smiles, silly conversations, honest moments, and beautiful memories with you. You matter to me, and I wanted you to know that in a way you'll remember.
+        <br><br>
+        <strong>— Yours, Subh</strong>
+      </div>
+      <div class="final-line">Can I keep making you smile? 💖</div>
+      <div class="music-row">
+        <button class="small-btn" id="musicBtn">♫ Play romantic melody</button>
+        <button class="small-btn" id="replayBtn">↻ Replay surprise</button>
+      </div>
+      <p class="note">Music note: this page includes a gentle original synth melody. To use a Bollywood song or your own proposal video, add media files to the assets folder and follow the README instructions.</p>
+    </section>
+  </main>
+
+  <audio id="music" loop preload="none"></audio>
+  <script>
+    const stars = document.getElementById('stars');
+    for(let i=0;i<75;i++){
+      const s=document.createElement('i'); s.className='star';
+      s.style.left=Math.random()*100+'%'; s.style.top=Math.random()*100+'%';
+      s.style.animationDelay=(Math.random()*3)+'s'; s.style.animationDuration=(2+Math.random()*3)+'s';
+      stars.appendChild(s);
+    }
+    const noBtn=document.getElementById('noBtn');
+    const hint=document.getElementById('hint');
+    const noMessages=['Oops, too slow 🙈','That button is feeling shy!','Maybe try the pink one? 💗','It ran away again!','You caught me looking!'];
+    let noCount=0;
+    function dodge(){
+      noCount++;
+      const card=document.getElementById('proposal');
+      const yes=document.getElementById('yesBtn');
+      const area=document.getElementById('buttons');
+      // Keep the NO button within the viewport on phones and desktops.
+      noBtn.style.position='fixed';
+      noBtn.style.zIndex='10';
+      const pad=12, w=noBtn.offsetWidth||132, h=noBtn.offsetHeight||50;
+      const maxX=Math.max(pad,window.innerWidth-w-pad);
+      const maxY=Math.max(pad,window.innerHeight-h-pad);
+      let x=pad+Math.random()*(maxX-pad), y=pad+Math.random()*(maxY-pad);
+      const yesRect=yes.getBoundingClientRect();
+      if(Math.abs(x-(yesRect.left+w/2))<w+30 && Math.abs(y-(yesRect.top+h/2))<h+30){x=pad+Math.random()*(maxX-pad);y=pad+Math.random()*(maxY-pad)}
+      noBtn.style.left=x+'px'; noBtn.style.top=y+'px';
+      hint.textContent=noMessages[(noCount-1)%noMessages.length];
+    }
+    noBtn.addEventListener('pointerenter',dodge);
+    noBtn.addEventListener('click',e=>{e.preventDefault();dodge()});
+    noBtn.addEventListener('touchstart',e=>{e.preventDefault();dodge()},{passive:false});
+    window.addEventListener('resize',()=>{if(noBtn.style.position==='fixed'){noBtn.style.left=Math.min(parseFloat(noBtn.style.left)||12,window.innerWidth-noBtn.offsetWidth-12)+'px';noBtn.style.top=Math.min(parseFloat(noBtn.style.top)||12,window.innerHeight-noBtn.offsetHeight-12)+'px'}});
+
+    // A tiny original melody generated locally, avoiding external dependencies.
+    let audioCtx=null, master=null, melodyTimer=null, melodyStep=0;
+    const notes=[523.25,659.25,783.99,659.25,587.33,698.46,880,698.46,523.25,659.25,783.99,987.77,880,783.99,659.25,587.33];
+    function playNote(freq,when,duration){
+      const osc=audioCtx.createOscillator(), gain=audioCtx.createGain();
+      osc.type='sine';osc.frequency.setValueAtTime(freq,when);
+      gain.gain.setValueAtTime(0.0001,when);gain.gain.exponentialRampToValueAtTime(0.055,when+0.04);gain.gain.exponentialRampToValueAtTime(0.0001,when+duration);
+      osc.connect(gain);gain.connect(master);osc.start(when);osc.stop(when+duration+0.03);
+    }
+    function startMelody(){
+      const AudioContext=window.AudioContext||window.webkitAudioContext;
+      if(!AudioContext){alert('Audio is not supported in this browser.');return}
+      if(!audioCtx){audioCtx=new AudioContext();master=audioCtx.createGain();master.gain.value=.65;master.connect(audioCtx.destination)}
+      audioCtx.resume();
+      if(melodyTimer)clearInterval(melodyTimer);
+      melodyStep=0;
+      const play=()=>{const now=audioCtx.currentTime;playNote(notes[melodyStep%notes.length],now,.45);if(melodyStep%4===0)playNote(notes[(melodyStep+4)%notes.length]/2,now,.75);melodyStep++};
+      play();melodyTimer=setInterval(play,420);
+      document.getElementById('musicBtn').textContent='♫ Pause romantic melody';
+    }
+    function stopMelody(){if(melodyTimer)clearInterval(melodyTimer);melodyTimer=null;if(audioCtx)audioCtx.suspend();document.getElementById('musicBtn').textContent='♫ Play romantic melody'}
+    function burstHearts(){
+      const symbols=['♥','♡','💗','✦','🌹'];
+      for(let i=0;i<26;i++){
+        const el=document.createElement('span');el.className='floating-heart';el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+        el.style.left=Math.random()*100+'vw';el.style.fontSize=(14+Math.random()*24)+'px';el.style.animationDuration=(3.2+Math.random()*3)+'s';
+        document.body.appendChild(el);setTimeout(()=>el.remove(),6800);
+      }
+    }
+    document.getElementById('yesBtn').addEventListener('click',()=>{
+      document.getElementById('proposal').classList.add('hidden');
+      document.getElementById('surprise').classList.remove('hidden');
+      noBtn.style.position='';noBtn.style.left='';noBtn.style.top='';
+      burstHearts();startMelody();window.scrollTo({top:0,behavior:'smooth'});
+    });
+    document.getElementById('musicBtn').addEventListener('click',()=>melodyTimer?stopMelody():startMelody());
+    document.getElementById('replayBtn').addEventListener('click',()=>{
+      stopMelody();document.getElementById('surprise').classList.add('hidden');document.getElementById('proposal').classList.remove('hidden');
+      hint.textContent='Choose honestly… although one button is a little shy.';window.scrollTo({top:0,behavior:'smooth'});
+    });
+  </script>
+</body>
+</html>
